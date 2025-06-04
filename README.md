@@ -27,7 +27,7 @@ This backend system provides:
 ### ✅ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/task-manager-backend.git
+git clone https://github.com/MrShekh/task-manager.git
 cd task-manager-backend
 
 // Install Dependencies
@@ -125,15 +125,17 @@ bash
 Copy
 Edit
 task-manager-backend/
-│
-├── controllers/        # Route logic
-├── models/             # Mongoose schemas
-├── routes/             # Route declarations
-├── middlewares/        # Auth & role checkers
-├── socket/             # WebSocket handlers
-├── config/             # MongoDB connection
-├── .env                # Environment config
-├── server.js           # Entry point
-👨‍💻 Author
+
+ controllers/        # Route logic
+ models/             # Mongoose schemas
+ routes/             # Route declarations
+ middlewares/        # Auth & role checkers
+ socket/             # WebSocket handlers
+ config/             # MongoDB connection
+ .env                # Environment config
+ server.js           # Entry point
+
+
+// Author
 Shekh Asif
 B.Tech CSE @ Rai University, Ahmedabad
