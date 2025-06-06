@@ -26,7 +26,7 @@ This backend system provides:
 
 ###  Clone the Repository
 
-```bash
+
 git clone https://github.com/MrShekh/task-manager.git
 cd task-manager-backend
 
@@ -53,6 +53,69 @@ Server runs on http://localhost:5000.
 Method	Endpoint	Description
 POST	/api/auth/register	Register a new user
 POST	/api/auth/login	Login user and get token
+
+ Auth APIs
+ //POST /api/auth/register
+Register a new user (Manager or Employee)
+
+Headers: Content-Type: application/json
+Request Body:
+json
+{
+  "name": "Shekh Asif",
+  "email": "asif@example.com",
+  "password": "yourpassword",
+  "role": "Manager" // or "Employee"
+}
+Success Response:
+json
+{
+  "success": true,
+  "message": "User registered successfully",
+  "user": {
+    "_id": "6650bc3fbb8d...",
+    "name": "Shekh Asif",
+    "email": "asif@example.com",
+    "role": "Manager"
+  }
+}
+Error Response (if email exists):
+json
+{
+  "success": false,
+  "message": "Email already registered"
+}
+
+//POST /api/auth/login
+Login user and return JWT + user data
+
+Headers:Content-Type: application/json
+Request Body:
+json
+{
+  "email": "asif@example.com",
+  "password": "yourpassword"
+}
+Success Response:
+json
+{
+  "success": true,
+  "message": "Login successful",
+  "user": {
+    "_id": "6650bc3fbb8d...",
+    "name": "Shekh Asif",
+    "email": "asif@example.com",
+    "role": "Manager"
+  },
+  "token": "jwt_token_here"
+}
+Error Response (wrong password or email):
+json
+{
+  "success": false,
+  "message": "Invalid email or password"
+}
+
 
 Example Response:
 
