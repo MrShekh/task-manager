@@ -26,6 +26,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('hello world');
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api', testrouter);
@@ -34,8 +38,9 @@ app.use('/api/tasks', taskRoutes);
 // Socket.io setup
 const io = new Server(server, {
   cors: {
-    origin: "*",
-    methods: ["GET", "POST"]
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true,
   }
 });
 registerSocket(io); // Register socket logic

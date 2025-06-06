@@ -1,4 +1,3 @@
-// sockets/socket.js
 const activeUsers = new Map();
 
 const ioInstance = {
@@ -12,7 +11,10 @@ const registerSocket = (io) => {
     socket.on('register', (userId) => {
       activeUsers.set(userId, socket.id);
       socket.join(userId); // Join room based on user ID
-      console.log(` Registered user ${userId} with socket ID ${socket.id}`);
+      console.log(`Registered user ${userId} with socket ID ${socket.id}`);
+
+      //  Send welcome message after registration
+      socket.emit('welcome', `Welcome, user ${userId}! 🎉`);
     });
 
     socket.on('disconnect', () => {
@@ -34,5 +36,5 @@ const getSocketIdByUserId = (userId) => {
 module.exports = {
   registerSocket,
   getSocketIdByUserId,
-  ioInstance
+  ioInstance,
 };
